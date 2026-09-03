@@ -5,31 +5,34 @@ public class Ch4_練習問題 {
 	public static void main(String[] args) {
 		// TODO 自動生成されたメソッド・スタブ
 
+		//練習4-1
+		int[] points = new int[4];
+		double[] weights = new double[5];
+		boolean[] answers = new boolean[3];
+		String[] names = new String[3];
+		
+		//練習4-2
+		int[] moneyList = {121902, 8302, 55100};
+		
+		for (int i = 0; i < moneyList.length; i++); {
+			System.out.println(moneyList[i]);
+		}
+		
+		for (int m : moneyList) {
+			System.out.println(m);
+		}
 	}
 
+	//練習4-4
+	int[] numbers = {3, 4, 9};
+	
+	System.out.println("1桁の数字を入力してください");
+	
+	int input = new java.util.Scanner(System.in).nextInt();
+	
+	for (int n : numbers) {
+		if (n == input) {
+			System.out.println("アタリ!");
+		}
+	}
 }
-
-//練習4-1
-//int型の値を4個まとめて格納できる配列points
-//int[] points = new int[4];
-
-//double型の値を5個まとめて格納できる配列weights
-//double[] weights = new double[5];
-
-//boolean型の値を3つまとめて格納できる配列 answers
-//boolean[] prints = new boolean[3];
-
-//String型の値を3つまとめて格納できる配列 names
-//String[] names = new string[3];
-
-//練習4-2
-//3つの口座残高「121902」「8302」「55100」が格納されているint 型配列　moneyListを宣言する。
-//moneyListの要素を1つずつfor文で取り出して画面に表示する。
-//moneyListの要素を拡張for文で1つずつ取り出して画面に表示する。
-
-int[] accounts = {121902, 8302, 55100};
-for (int i = 0; i < accounts.length; i++) {
-	System.out.println(accounts[i]);
-}
-
-for
