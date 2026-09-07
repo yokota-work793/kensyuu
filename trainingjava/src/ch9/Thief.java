@@ -3,7 +3,7 @@ package ch9;
 public class Thief {
 
 	String name;
-	int hp;
+	public int hp;
 	int mp;
 	
 	//名前・HP・MPをすべて指定する

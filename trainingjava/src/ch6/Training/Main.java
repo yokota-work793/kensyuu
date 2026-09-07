@@ -1,22 +1,19 @@
-package 研修.calcapp.main;
+package ch6.Training;
 
-import 研修.calcapp.comment.Kouhan;
-import 研修.calcapp.comment.Zenhan;
+import ch6.Training.comment.Kouhan;
+import ch6.Training.comment.Zenhan;
 
 public class Main {
 
-	//練習6-1
-	
-	
-	public static void main(String[] args)
-	throws Exception {
+	public static void main(String[] args) throws Exception {
+		// TODO 自動生成されたメソッド・スタブ
 		
 		Zenhan.doWarusa();
 		Zenhan.doTogame();
 		Kouhan.callDeae();
 		Kouhan.showMondokoro();
+
 	}
-	
 	/*
 	public static void doWarusa() {
 		System.out.println("きなこでござる。食えませんがの。");
@@ -29,11 +26,13 @@ public class Main {
 	public static void callDeae() {
 		System.out.println("えぇい、こしゃくな。くせ者だ！であえい！");
 	}
-	
-	public static void showMondokoro() throws Exception {
+
+	public static void showMondokoro() {
 		System.out.println("飛車さん、角さん。もういいでしょう。");
 		System.out.println("この紋所が目にはいらぬか！");
 		doTogame(); //もう一度、とがめる
-	}
-	*/
+}
+
+*/
+	
 }

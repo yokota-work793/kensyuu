@@ -6,7 +6,7 @@ import ch8.Matango;
 public class Hero {
 
 	String name = "ミナト";
-	int hp = 100;
+	public int hp = 100;
 	
 	// 戦う
 	public void attack(Matango m) {

@@ -1,4 +1,4 @@
-package 研修.calcapp.comment;
+package ch6.Training.comment;
 
 public class Zenhan {
 
@@ -9,5 +9,4 @@ public class Zenhan {
 	public static void doTogame() {
 		System.out.println("この老いぼれの目はごまかせませんぞ。");
 	}
-
 }

@@ -1,4 +1,4 @@
-package 研修.calcapp.logics;
+package 研修.calcapp;
 
 public class CalcLogic {
 	public static int tasu(int a, int b) {
