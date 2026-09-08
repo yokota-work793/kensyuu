@@ -1,5 +1,7 @@
 package ch17;
 
+// 「初期化されていない変数fwを利用する可能性がある」エラーを解決する
+
 import java.io.FileWriter;
 import java.io.IOException;
 

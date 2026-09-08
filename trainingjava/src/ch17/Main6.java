@@ -1,5 +1,7 @@
 package ch17;
 
+// try-with-resouces文の利用
+
 import java.io.FileWriter;
 import java.io.IOException;
 

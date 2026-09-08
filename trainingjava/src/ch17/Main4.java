@@ -1,5 +1,7 @@
 package ch17;
 
+// 「fw.close()をtry-catchしていない」エラーを解決する
+
 import java.io.FileWriter;
 import java.io.IOException;
 

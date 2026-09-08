@@ -1,5 +1,8 @@
 package ch17;
 
+// 「NullPointerExceptionの発生」に対応する
+// ファイルが開いたときだけ後片付け処理をする
+
 import java.io.FileWriter;
 import java.io.IOException;
 
