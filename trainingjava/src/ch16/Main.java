@@ -1,6 +1,7 @@
 package ch16;
 
 // ラッパークラスをArrayListに格納する
+// 基本データ型の8つ（byte, short, int, long, float, double, char, boolean）は直接ArrayListに格納できない
 
 import java.util.ArrayList;
 
