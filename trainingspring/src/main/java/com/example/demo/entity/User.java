@@ -1,9 +1,6 @@
 package com.example.demo.entity;
-
-import java.io.Serializable;
-
 // Model データベースから取得したデータを格納する
-
+import java.io.Serializable;
 import java.util.Date;
 
 import jakarta.persistence.Column;
