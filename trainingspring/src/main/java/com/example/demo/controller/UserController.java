@@ -56,6 +56,30 @@ public class UserController {
 		model.addAttribute("userRequest", new UserRequest());
 		return "user/add";
 	}
+	
+	/**
+	 * ユーザー新規登録
+	 * @param userRequest リクエストデータ
+	 * @param result BindingResult
+	 * @param model Model
+	 * @return ユーザー情報一覧画面
+	 */
+	@PostMapping(value = "/user/create")
+	public String create(@Validated @ModelAttribute UserRequest userRequest, BindingResult result, Model model) {
+	if (result.hasErrors())	{
+		List<String> errorList = new ArrayList<String>();
+		for (ObjectError error : result.getAllErrors() ) {
+			errorList.add(error.getDefaultMessage());
+		}
+		
+		model.addAttribute("validationError", errorList);
+		return "user/add";
+	}
+	
+	// ここでユーザー情報を登録する
+	// 登録処理は省略
+	return "user/add";
+	}
 
 	/**
 	 * ユーザー情報詳細画面を表示
