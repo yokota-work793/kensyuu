@@ -78,7 +78,8 @@ public class UserController {
 	
 	// ここでユーザー情報を登録する
 	// 登録処理は省略
-	return "user/add";
+	userService.create(userRequest);
+	return "redirect:/user/list";
 	}
 
 	/**
