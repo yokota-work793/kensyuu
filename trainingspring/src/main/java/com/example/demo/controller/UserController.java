@@ -15,7 +15,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+
 import com.example.demo.dto.UserRequest;
+import com.example.demo.dto.UserSearchRequest;
 import com.example.demo.dto.UserUpdateRequest;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
@@ -31,7 +33,7 @@ public class UserController {
 	 */
 	@Autowired
 	private UserService userService;
-	
+
 	/**
 	 * ユーザー情報一覧画面を表示
 	 * @param model Model
@@ -43,7 +45,7 @@ public class UserController {
 		model.addAttribute("userlist", userlist);
 		return "user/list";
 	}
-	
+
 	/**
 	 * ユーザー新規登録画面を表示
 	 * @param model Model
@@ -54,7 +56,7 @@ public class UserController {
 		model.addAttribute("userRequest", new UserRequest());
 		return "user/add";
 	}
-	
+
 	/**
 	 * ユーザー情報詳細画面を表示
 	 * @param id 表示するユーザーID
@@ -67,7 +69,7 @@ public class UserController {
 		model.addAttribute("userData", user);
 		return "user/view";
 	}
-	
+
 	/**
 	 * ユーザー編集画面を表示
 	 * @param id 表示するユーザーID
@@ -85,7 +87,7 @@ public class UserController {
 		model.addAttribute("userUpdateRequest", userUpdateRequest);
 		return "user/edit";
 	}
-	
+
 	/**
 	 * ユーザー更新
 	 * @param userRequest リクエストデータ
@@ -93,59 +95,45 @@ public class UserController {
 	 * @return ユーザー情報詳細画面
 	 */
 	@PostMapping("/user/update")
-	public String update(@Validated @ModelAttribute UserUpdateRequest userUpdateRequest, BindingResult result, Model model) {
-		
+	public String update(@Validated @ModelAttribute UserUpdateRequest userUpdateRequest, BindingResult result,
+			Model model) {
+
 		if (result.hasErrors()) {
 			List<String> errorList = new ArrayList<String>();
-			
+
 			for (ObjectError error : result.getAllErrors()) {
 				errorList.add(error.getDefaultMessage());
 			}
 			model.addAttribute("validationError", errorList);
 			return "user/edit";
 		}
-		
+
 		// ユーザー情報の更新
 		userService.update(userUpdateRequest);
 		return String.format("redirect:/user/%d", userUpdateRequest.getId());
 	}
-	
+
 	/**
-	 * ユーザー新規登録
-	 * @param userRequest リクエストデータ
+	 * ユーザー情報検索画面を表示
 	 * @param model Model
 	 * @return ユーザー情報一覧画面
 	 */
-	/*
-	@RequestMapping(value = "/user/create", method = RequestMethod.POST)
-	public String create(@Validated @ModelAttribute UserRequest userRequest, BindingResult result, Model model) {
-		
-		if (result.hasErrors()) {
-			// 入力チェックエラーの場合
-			List<String> errorList = new ArrayList<String>();
-			for (ObjectError error : result.getAllErrors()) {
-				errorList.add(error.getDefaultMessage());
-			}
-			model.addAttribute("validationError", errorList);
-			return "user/add";
-		}
-		
-		// ユーザー情報の登録
-		userService.create(userRequest);
-		return "redirect:/user/list";
+	@GetMapping(value = "/user/search")
+	public String displaySearch(Model model) {
+		model.addAttribute("userSearchRequest", new UserSearchRequest());
+		return "user/search";
 	}
-	
-	/**
-	 * ユーザー情報詳細画面を表示
-	 * @param id 表示するユーザーID
-	 * @param model Model
-	 * @return ユーザー情報詳細画面
-	 */
-	/*
-	@GetMapping("/user/{id}")
-	public String displayView(@PathVariable Long id, Model model) {
-		return "user/view";
-	}
-	*/
 
+	/**
+	 * ユーザー情報検索
+	 * @param userSearchRequest リクエストデータ
+	 * @param model Model
+	 * @return ユーザー情報一覧画面
+	 */
+	@PostMapping("/user/id_search")
+	public String search(@ModelAttribute UserSearchRequest userSearchRequest, Model model) {
+		User user = userService.search(userSearchRequest);
+		model.addAttribute("userinfo", user);
+		return "user/search";
+	}
 }
