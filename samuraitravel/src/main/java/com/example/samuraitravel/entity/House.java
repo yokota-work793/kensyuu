@@ -61,7 +61,7 @@ public class House {
 	 * 郵便番号
 	 */
 	@Column(name = "postal_code")
-	private Integer postalCode;
+	private String postalCode;
 	
 	/**
 	 * 住所

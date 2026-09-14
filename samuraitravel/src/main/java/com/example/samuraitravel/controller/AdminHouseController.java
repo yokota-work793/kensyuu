@@ -12,7 +12,7 @@ import com.example.samuraitravel.entity.House;
 import com.example.samuraitravel.repository.HouseRepository;
 
 @Controller
-@RequestMapping(value = "/admin/houses", method = RequestMethod.GET)
+@RequestMapping(value = "/admin/houses", method = RequestMethod.POST)
 public class AdminHouseController {
 	private final HouseRepository houseRepository;
 	
