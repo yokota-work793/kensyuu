@@ -21,6 +21,26 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 		this.userRepository = userRepository;
 	}
 
+	/*
+	@Override
+	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+
+	    User user = userRepository.findByEmail(email);
+
+	    if (user == null) {
+	        throw new UsernameNotFoundException(
+	            "ユーザーが見つかりませんでした: " + email
+	        );
+	    }
+
+	    String userRoleName = user.getRole().getName();
+
+	    Collection<GrantedAuthority> authorities = new ArrayList<>();
+	    authorities.add(new SimpleGrantedAuthority(userRoleName));
+
+	    return new UserDetailsImpl(user, authorities);
+	}
+	*/
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		try {
@@ -34,5 +54,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
 		}
 	}
+
 
 }

@@ -1,6 +1,6 @@
 package com.example.samuraitravel.entity;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,9 +27,9 @@ public class User {
 	private String name;
 	
 	@Column(name = "furigana")
-	private String furigama;
+	private String furigana;
 	
-	@Column(name = "posral_code")
+	@Column(name = "postal_code")
 	private String postalCode;
 	
 	@Column(name = "address")
