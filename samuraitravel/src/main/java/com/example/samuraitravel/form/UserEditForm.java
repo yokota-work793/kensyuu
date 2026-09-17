@@ -20,7 +20,7 @@ public class UserEditForm {
 	private String furigana;
 	
 	@NotBlank(message = "郵便番号を入力してください。")
-	private String psetalCode;
+	private String postalCode;
 	
 	@NotBlank(message = "住所を入力してください。")
 	private String address;

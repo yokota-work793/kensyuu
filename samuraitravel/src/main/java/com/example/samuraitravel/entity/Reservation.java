@@ -1,6 +1,6 @@
 package com.example.samuraitravel.entity;
 
-import java.security.Timestamp;
+import java.sql.Timestamp;
 import java.time.LocalDate;
 
 import jakarta.persistence.Column;
@@ -44,10 +44,10 @@ public class Reservation {
 	@Column(name = "amount")
 	private Integer amount;
 	
-	@Column(name = "created_at, insertable = false, updatable = false")
+	@Column(name = "created_at", insertable = false, updatable = false)
 	private Timestamp createdAt;
 	
-	@Column(name = "updated_at, insertable = false, updatable = false")
+	@Column(name = "updated_at", insertable = false, updatable = false)
 	private Timestamp updatedAt;
 
 }

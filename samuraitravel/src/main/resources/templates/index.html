@@ -2,18 +2,14 @@
 <html xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<div th:replace="~{fragment :: meta}"></div>
 	<div th:replace="~{fragment :: styles}"></div>
 
-	<title>samurai Travel</title>
+	<title>SAMURAI Travel</title>
 
 </head>
 
 <body>
-	<p>Hello, world!</p>
-
 	<div class="samurairavel-wrapper">
 
 		<!-- ヘッダー -->
@@ -46,9 +42,9 @@
 				<h2 class="text-center mb-3">新着</h2>
 				<div class="row row-cols-lg-5 row-cols-2 g-3 mb-5">
 					<div class="col" th:each="newHouse : ${newHouses}">
-						<a th:href="@{/houses/_${newHouse.getId()}_}" class="link-dark samuraitravel-card-link">
+						<a th:href="@{/houses/{id}(id=${newHouse.getId()})}" class="link-dark samuraitravel-card-link">
 							<div class="card h-100">
-								<img th:if="${newHouse.getImageName()" th:src="@{/storage/_${newHouse.getImageName())_}"
+								<img th:if="${newHouse.getImageName()}" th:src="@{/storage/{imageName}(imageName=${newHouse.getImageName()})}"
 									class="card-img-top samuraitravel-vertical-card-image" alt="店舗画像">
 								<img th:unless="${newHouse.getImageName()}" th:src="@{/images/noImage.png}"
 									class="card-img-top samuraitravel-vertical-card-image" alt="NO IMAGE">
@@ -66,7 +62,7 @@
 						</a>
 					</div>
 				</div>
-				<div class="row justify-montent-center">
+				<div class="row justify-content-center">
 					<div class="col-xl-5 col-lg-6 col-md-8">
 
 						<h2 class="text-center mb-3">エリアから探す</h2>

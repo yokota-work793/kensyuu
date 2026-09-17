@@ -19,12 +19,20 @@ public class WebSecurityConfig {
 		http
 				.authorizeHttpRequests((requests) -> requests
 						//すべてのユーザーにアクセルを許可するURL
-						.requestMatchers("/css/**", "/images/**", "/js/**", "/storage/**", "/signup/**", "/houses/{id}").permitAll()
+						.requestMatchers(
+								"/css/**",
+								"/images/**", 
+								"/js/**",
+								"/storage/**",
+								"/signup/**",
+								"/houses/{id}",
+								"/stripe/webhook").permitAll()
 						//管理者にのみアクセスを許可するURL
 						.requestMatchers("/admin/**").hasRole("ADMIN")
 						//上記以外のURLはログインが必要（会員または管理者のどちらでもOK）
-						.anyRequest().authenticated())
-
+						.anyRequest().authenticated()
+						)
+				
 				.formLogin((form) -> form
 						//ログインページのURL
 						.loginPage("/login")
@@ -34,13 +42,19 @@ public class WebSecurityConfig {
 						.defaultSuccessUrl("/?loggedIn")
 						//ログイン失敗時のリダイレクト先URL
 						.failureUrl("/login?error")
-						.permitAll())
-
+						.permitAll()
+						)
+				
 				.logout((logout) -> logout
 						//ログアウト時のリダイレクト先URL
 						.logoutSuccessUrl("/?loggedOut")
-						.permitAll());
-
+						.permitAll()
+						)
+				
+				.csrf((csrf) -> csrf
+				.ignoringRequestMatchers("/stripe/webhook")
+						);
+		
 		return http.build();
 	}
 

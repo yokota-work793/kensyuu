@@ -49,7 +49,7 @@ public class UserService {
 		
 		user.setName(userEditForm.getName());
 		user.setFurigana(userEditForm.getFurigana());
-		user.setPostalCode(userEditForm.getPsetalCode());
+		user.setPostalCode(userEditForm.getPostalCode());
 		user.setAddress(userEditForm.getAddress());
 		user.setPhoneNumber(userEditForm.getPhoneNumber());
 		user.setEmail(userEditForm.getEmail());
